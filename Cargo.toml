@@ -1,0 +1,19 @@
+[package]
+name = "esp32c6_example"
+version = "0.1.0"
+authors = ["David Lawrence <dlaw@dlaw.me>"]
+edition = "2021"
+license = "MIT"
+
+[profile.release]
+debug = true
+
+[profile.dev]
+opt-level = 3
+
+[dependencies]
+rtic = { git = "https://github.com/Wassasin/rtic", branch = "feature/esp32c6", features = ["riscv-esp32c6-backend"] }
+esp-backtrace = { version = "0.11", features = ["esp32c6", "panic-handler", "exception-handler", "println"] }
+esp-hal = { version = "0.17", features = ["esp32c6"] }
+esp-println = { version = "0.9", default-features = false, features = ["esp32c6", "critical-section", "colors", "jtag-serial"] }
+esp32c6 = {version = "0.12", features = ["critical-section"]}
